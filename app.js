@@ -2,6 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 
+// Set the app name in a variable
+app.locals.appName = process.env.APPLICATION_NAME || 'Express Template App';
+
 const port = process.env.APPLICATION_PORT || 3000;
 
 // Setup ejs
