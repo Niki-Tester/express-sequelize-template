@@ -24,8 +24,9 @@ app.disable('x-powered-by');
 app.listen(port, async () => {
 	// Log the environment
 	console.log('Environment:', process.env.NODE_ENV);
-	// Log the port
-	console.log(`App listening at http://localhost:${port}`);
+	// Log the port if in development mode
+	if (process.env.NODE_ENV === 'Development')
+		console.log(`App listening at http://localhost:${port}`);
 });
 
 // Routes
