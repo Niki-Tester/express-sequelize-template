@@ -7,6 +7,8 @@ app.locals.appName = process.env.APPLICATION_NAME || 'Express Template App';
 
 const port = process.env.APPLICATION_PORT || 3000;
 
+const db = require('./db/db');
+
 // Setup ejs
 app.set('view engine', 'ejs');
 
