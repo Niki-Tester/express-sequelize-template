@@ -1,0 +1,29 @@
+require('dotenv').config();
+const express = require('express');
+const app = express();
+
+const port = process.env.APPLICATION_PORT || 3000;
+
+// Setup ejs
+app.set('view engine', 'ejs');
+
+// Setup static folder
+app.use(express.static('public'));
+
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Disable powered by header
+app.disable('x-powered-by');
+
+// Listen
+app.listen(port, async () => {
+	// Log the environment
+	console.log('Environment:', process.env.NODE_ENV);
+	// Log the port
+	console.log(`App listening at http://localhost:${port}`);
+});
+
+// Routes
+app.use('/', require('./routes/root'));
